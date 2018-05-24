@@ -171,4 +171,4 @@ def test():
     batch_size = 8
 
     # torch.tensor [batch, height, width]
-    initial_pos = torch.randn(batch_size, height, width)
+    initial_pos = torch.randn(height, width)
