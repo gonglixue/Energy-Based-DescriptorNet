@@ -186,10 +186,11 @@ def grad_test():
     print(x.grad)
 
 def vis_test():
-    n_samples = 2000
+    n_samples = 25
     stepsize = 0.1
     n_steps = 20
     dim = 2
+    batch_size = 25
 
     initial_pos = torch.randn(1, dim)
     samples = hmc_sampling(initial_pos, NormalEnergy, n_samples, stepsize, n_steps)

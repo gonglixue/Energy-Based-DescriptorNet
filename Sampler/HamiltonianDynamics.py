@@ -148,7 +148,7 @@ def hmc_sampling(init_pos, energy_fn, n_samples, step_size=0.01, n_steps=20, gap
     :param step_size:
     :param n_steps:
     :param gap:
-    :return:
+    :return: a list of tensor, each element [1, 1, height, width]
     """
     result_samples = []
     result_samples.append(init_pos)

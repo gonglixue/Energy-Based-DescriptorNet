@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89cc1443-ed1e-4174-8589-b1e6493351f6" name="Default" comment="" />
+    <list default="true" id="89cc1443-ed1e-4174-8589-b1e6493351f6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/train_d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sampler/HamiltonianDynamics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sampler/HamiltonianDynamics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/descriptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/descriptor.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,21 +16,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48455924">
+    <splitter split-orientation="horizontal" split-proportion="0.49624494">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="descriptor.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/model/descriptor.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1134">
-                  <caret line="72" column="27" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#12#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Image.py" pinned="false" current-in-tab="false">
             <entry file="file:///usr/lib/python3/dist-packages/PIL/Image.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -55,17 +49,41 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="HamiltonianDynamics_simple.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="245">
+                  <caret line="198" column="33" lean-forward="true" selection-start-line="198" selection-start-column="33" selection-end-line="198" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HamiltonianDynamics.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="576">
+                  <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="HamiltonianDynamics.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics.py">
+          <file leaf-file-name="train_d.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/train_d.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
-                  <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
+                <state relative-caret-position="616">
+                  <caret line="44" column="23" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="23" />
                   <folding>
-                    <element signature="e#0#18#0" expanded="true" />
+                    <element signature="e#0#12#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -82,15 +100,20 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/model/__init__.py" />
         <option value="$PROJECT_DIR$/model/f.py" />
-        <option value="$PROJECT_DIR$/model/descriptor.py" />
-        <option value="$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py" />
         <option value="$PROJECT_DIR$/Sampler/test.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/model/descriptor.py" />
         <option value="$PROJECT_DIR$/Sampler/HamiltonianDynamics.py" />
+        <option value="$PROJECT_DIR$/train_d.py" />
+        <option value="$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py" />
       </list>
     </option>
   </component>
@@ -100,6 +123,7 @@
     <option name="width" value="1827" />
     <option name="height" value="979" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -144,7 +168,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.HamiltonianDynamics_simple">
+    <configuration name="HamiltonianDynamics_simple" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DescriptorNet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Sampler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="descriptor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DescriptorNet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,9 +226,11 @@
     <list>
       <item itemvalue="Python.descriptor" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.HamiltonianDynamics_simple" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.HamiltonianDynamics_simple" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.descriptor" />
       </list>
@@ -209,14 +253,14 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16985254" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.054614965" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32914045" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.070378155" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.1802935" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.18067227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44876325" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -227,6 +271,25 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.070378155" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.054614965" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44876325" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.18067227" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -318,6 +381,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/torch/optim/sgd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="56" column="51" lean-forward="true" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+          <folding>
+            <element signature="e#84#1715#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/descriptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/lib/python3/dist-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -325,32 +415,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py">
+    <entry file="file://$PROJECT_DIR$/train_d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="116" selection-start-line="116" selection-end-line="118" selection-end-column="41" />
+        <state relative-caret-position="616">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="23" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
+        <state relative-caret-position="576">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/descriptor.py">
+    <entry file="file://$PROJECT_DIR$/Sampler/HamiltonianDynamics_simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="72" column="27" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="27" />
+        <state relative-caret-position="245">
+          <caret line="198" column="33" lean-forward="true" selection-start-line="198" selection-start-column="33" selection-end-line="198" selection-end-column="33" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

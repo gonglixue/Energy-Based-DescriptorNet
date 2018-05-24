@@ -10,7 +10,7 @@ class F(nn.Module):
         self.img_size = img_size
 
         self.conv = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=200, kernel_size=(16, 16), stride=3),   #
+            nn.Conv2d(in_channels=1, out_channels=200, kernel_size=(16, 16), stride=3),   #
             nn.BatchNorm2d(num_features=200),
             nn.ReLU(),
             nn.Conv2d(in_channels=200, out_channels=100, kernel_size=(6, 6), stride=2),
@@ -26,6 +26,42 @@ class F(nn.Module):
         conv_feature = conv_feature.view(len(conv_feature), -1)
         energy = self.fc(conv_feature)
         return energy
+
+    def _init_weights(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                # n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, 0.01)
+                m.bias.data.fill_(0)
+            elif isinstance(m, nn.Linear):
+                m.weight.data.normal_(0, 0.001)
+                m.bias.data.zero_()
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+class E(nn.Module):
+    def __init__(self, img_size):
+        super(F, self).__init__()
+        self.img_size = img_size
+
+        self.conv = nn.Sequential(
+            nn.Conv2d(in_channels=1, out_channels=200, kernel_size=(16, 16), stride=3),   #
+            nn.BatchNorm2d(num_features=200),
+            nn.ReLU(),
+            nn.Conv2d(in_channels=200, out_channels=100, kernel_size=(6, 6), stride=2),
+            # nn.BatchNorm2d(num_features=100),
+            nn.ReLU(),
+        )
+        self.fc = nn.Linear(in_features=100, out_features=1)
+
+        self._init_weights()
+
+    def forward(self, input_data):
+        conv_feature = self.conv(input_data)
+        conv_feature = conv_feature.view(len(conv_feature), -1)
+        energy = self.fc(conv_feature)
+        return -1 * energy
 
     def _init_weights(self):
         for m in self.modules():
