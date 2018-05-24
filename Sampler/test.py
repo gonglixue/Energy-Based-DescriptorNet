@@ -19,8 +19,8 @@ def test():
 
 def test2():
     x = torch.ones(5, 1)
-    # x = x.t()
-    x = x.repeat(1, 2)
+    # x = torch.FloatTensor([x])
+    # x = x.repeat(1, 2)
     print(x)
     y = torch.rand(5, 2)
     print(y)
@@ -34,5 +34,19 @@ def test3():
     print(u)
     print(x - u)
 
+def test4():
+    v = torch.rand(3, 1, 2, 2)
+    print(v)
+    temp = torch.sum(v, dim=1)
+    print(temp)
+    temp = torch.sum(temp, dim=1)
+    print(temp)
+    temp = torch.sum(temp, dim=1)
+    print(temp)
+
+    x = temp.view(3, 1)
+
+    print(x)
+
 if __name__ == '__main__':
-    test3()
+    test2()

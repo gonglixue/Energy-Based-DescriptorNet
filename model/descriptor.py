@@ -3,6 +3,7 @@ import torch.nn as nn
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
 from torch.autograd import Variable
+from torch import optim
 
 class F(nn.Module):
     def __init__(self, img_size):
@@ -42,7 +43,7 @@ class F(nn.Module):
 
 class E(nn.Module):
     def __init__(self, img_size):
-        super(F, self).__init__()
+        super(E, self).__init__()
         self.img_size = img_size
 
         self.conv = nn.Sequential(
@@ -55,12 +56,16 @@ class E(nn.Module):
         )
         self.fc = nn.Linear(in_features=100, out_features=1)
 
+        self.output = nn.Sigmoid()
+
         self._init_weights()
 
     def forward(self, input_data):
         conv_feature = self.conv(input_data)
         conv_feature = conv_feature.view(len(conv_feature), -1)
         energy = self.fc(conv_feature)
+        energy = self.output(energy)
+        energy.view(-1)
         return -1 * energy
 
     def _init_weights(self):
@@ -78,7 +83,7 @@ class E(nn.Module):
 
 
 def test_f():
-    BATCH_SIZE = 1
+    BATCH_SIZE = 2
     IMG_SIZE = 32
     LEARNING_RATE = 0.01
     EPOCH = 5
@@ -102,11 +107,23 @@ def test_f():
     descriptor = F(IMG_SIZE)
     descriptor.cuda()
     descriptor = nn.DataParallel(descriptor)
-    for images, labels in trainLoader:
+
+    optimizer = optim.SGD(descriptor.parameters(), lr=0.01)
+    for data, labels in trainLoader:
+        images = torch.zeros(BATCH_SIZE, 1, IMG_SIZE, IMG_SIZE)
+        images[:, 0, :, :] = data[:, 0, :, :]
         images = Variable(images).cuda()
         labels = Variable(labels).cuda()
 
         energy = descriptor(images)
+        batch_energy_data = energy.data[:, 0]
+
+        loss = energy[0][0]
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        print(energy)
 
 if __name__ == '__main__':
     test_f()

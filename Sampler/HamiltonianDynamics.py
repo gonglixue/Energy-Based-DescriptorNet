@@ -5,15 +5,15 @@ import matplotlib.pyplot as plt
 
 def kinetic_energy(velocity):
     """
-    calculate kinetic nergy 0.5 * vel^2
+    calculate kinetic energy 0.5 * vel^2
     :param velocity: Variable [batch, 1, height, width]
     :return: a 1D torch.tensor with length of batch_size
     """
-    temp = (velocity.data)**2
+    temp = (velocity.data)**2       # temp: torch.FloatTensor
     temp = torch.sum(temp, dim=1)
     temp = torch.sum(temp, dim=1)
     temp = torch.sum(temp, dim=1)
-    return 0.5 * temp.data
+    return 0.5 * temp
 
 # compute energy: U+K
 def hamiltonian(pos, vel, energy_fn):
@@ -24,23 +24,25 @@ def hamiltonian(pos, vel, energy_fn):
     :param energy_fn: energy function
     :return: a 1D tensor with length of batch_size
     """
-    U = energy_fn(pos)  # 1D Variable with length of batch_size
-    U = U.data
-    K = kinetic_energy(vel) # 1D tensor with length of batch_size
+    batch_size = len(pos)
+    U = energy_fn(pos)  # Variable [batch_size x 1]
+    U = U.data    # 2D tensor [batch_size x 1]
+    K = kinetic_energy(vel)     # 1D tensor with length of batch_size
+    K = K.view(batch_size, 1)   # 2D tensor of size [batch_size * 1]
     return U + K
 
 def metropolis_hastings_accept(energy_prev, energy_next):
     """
     Performs a Metropolis-Hastings accept-reject move.
-    :param energy_prev: 1D torch.tensor of size batch_size
-    :param energy_next: 1D torch.tensor of size batch_size
-    :return: 1D torch.ByteTensor of size batch_size. if true --> accept
+    :param energy_prev: 2D torch.tensor of size batch_size * 1
+    :param energy_next: 2D torch.tensor of size batch_size * 1
+    :return: 2D torch.ByteTensor of size batch_size. if true --> accept
     """
     batch_size = len(energy_prev)
     energy_diff = energy_prev - energy_next
-    ones = torch.ones(batch_size)
+    ones = torch.ones(batch_size, 1).cuda()
     energy_diff = torch.min(energy_diff, ones)
-    rnd = torch.rand(batch_size)
+    rnd = torch.rand(batch_size).cuda()
 
     return (torch.exp(energy_diff) - rnd) > 0
 
@@ -120,7 +122,7 @@ def hmc_move(positions, energy_fn, step_size, n_steps):
              final_pos(torch.tensor of size [batch, 1, height, width]
     """
     # random initial velocity from normal distribution
-    initial_vel = torch.randn(positions.size()) # batch, 1, height, width
+    initial_vel = torch.randn(positions.size()).cuda()  # batch, 1, height, width
 
     positions = Variable(positions, requires_grad=True)
     initial_vel = Variable(initial_vel, requires_grad=True)
@@ -153,13 +155,23 @@ def hmc_sampling(init_pos, energy_fn, n_samples, step_size=0.01, n_steps=20, gap
     result_samples = []
     result_samples.append(init_pos)
 
+    samples_batch = torch.zeros(n_samples+gap, 1, init_pos.size(2), init_pos.size(3))
+    samples_batch[0, :, :, :] = init_pos[0, :, :, :]
+    samples_batch = samples_batch.cuda()
+
     for i in range(1, n_samples+gap):
         last_pos = result_samples[-1]
         accept, new_pos = hmc_move(last_pos, energy_fn, step_size, n_steps)
 
         # accept: 1D ByteTensor of size batch_size
         temp = accept.float() * new_pos + (1 - accept.float()) * last_pos
+
         result_samples.append(temp)
+        samples_batch[i, :, :, :] = temp[0, :, :, :]
+
+    # test_samples = samples_batch[gap:, :, :, :]
+    # test2_samples = test_samples.clone()
+    return samples_batch[gap:, :, :, :]
 
 def test():
     n_samples = 1000
@@ -171,4 +183,4 @@ def test():
     batch_size = 8
 
     # torch.tensor [batch, height, width]
-    initial_pos = torch.randn(height, width)
+    initial_pos = torch.randn(batch_size, 1, height, width)
